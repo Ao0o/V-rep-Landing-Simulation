@@ -120,9 +120,11 @@ catkin_package(
 # include_directories(include)
 include_directories(
   ${catkin_INCLUDE_DIRS}
+  /usr/local/include/camerareader
 )
-include_directories(include ${OpenCV_INCLUDE_DIRS})
+include_directories(include ${OpenCV_INCLUDE_DIRS} )
 
+link_directories(/usr/local/lib)
 ## Declare a C++ library
 # add_library(image_process
 #   src/${PROJECT_NAME}/image_process.cpp
@@ -143,6 +145,7 @@ add_executable(image_process src/image_process.cpp)
 ## Specify libraries to link a library or executable target against
 target_link_libraries(image_process
   ${catkin_LIBRARIES} ${OpenCV_LIBRARIES}
+  camerareader
 )
 
 #############

@@ -1,0 +1,15 @@
+
+* TODO 控制算法
+
+** TODO 动力学模型
+   eigen实现坐标转换
+
+** TODO PID调参
+
+** TODO 空气阻力
+
+** TODO 
+
+* TODO 云台仿真
+
+* TODO 程序优化

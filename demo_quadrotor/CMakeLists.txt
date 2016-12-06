@@ -101,13 +101,19 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+file(GLOB MY_PID_LIB_SOURCES ${PROJECT_SOURCE_DIR}/include/PID_lib/*.cpp)
+include_directories("${PROJECT_SOURCE_DIR}/include/PID_lib")
+
+INCLUDE_DIRECTORIES(
+    include)
+
 ## Declare a cpp library
 # add_library(demo_quadrotor
 #   src/${PROJECT_NAME}/demo_quadrotor.cpp
 # )
 
 ## Declare a cpp executable
- add_executable(demo_quadrotor_node src/demo_quadrotor_node.cpp)
+ add_executable(demo_quadrotor_node src/demo_quadrotor_node.cpp ${MY_PID_LIB_SOURCES})
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
