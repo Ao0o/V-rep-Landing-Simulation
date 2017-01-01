@@ -1,0 +1,2 @@
+/home/bec/文档/SolvePnP/build/CMakeFiles/camerareader.dir
+/home/bec/文档/SolvePnP/build/CMakeFiles/SolvePnP.dir

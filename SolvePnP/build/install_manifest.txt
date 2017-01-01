@@ -1,0 +1,9 @@
+/usr/local/lib/libcamerareader.so
+/usr/local/include/camerareader/CameraReader.h
+/usr/local/include/camerareader/Marker.hpp
+/usr/local/include/camerareader/MarkerDetector.hpp
+/usr/local/include/camerareader/CameraCalibration.hpp
+/usr/local/include/camerareader/MarkerDetector.hpp
+/usr/local/include/camerareader/TinyLA.hpp
+/usr/local/include/camerareader/GeometryTypes.hpp
+/usr/local/include/camerareader/BGRAVideoFrame.h

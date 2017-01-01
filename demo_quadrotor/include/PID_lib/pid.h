@@ -32,7 +32,7 @@ private:
     float setPoint;
     bool is_debug;
 
-    float errorBuffer[8];
+    float errorBuffer[2];
     int bufferCount;
     float integral, integralMin, integralMax;
     float ctrl, ctrlMin, ctrlMax;

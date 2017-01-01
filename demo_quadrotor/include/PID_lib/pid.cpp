@@ -23,7 +23,7 @@ PID::PID(float _Kp, float _Ki, float _Kd,
 
     //TODO: change old error to be a buffer (length 8)
     bufferCount = 0;
-    for (int i=0;i<8;i++)
+    for (int i=0;i<2;i++)
         errorBuffer[i] = 0;
     integral = 0;
 
@@ -41,15 +41,15 @@ float PID::update(const float currentPoint,
   
     error = /*setPoint -*/ currentPoint;
     
-    for (int i=7; i>0; i--)
-    {
-        errorBuffer[i] =  errorBuffer[i-1];
-    }
+//    for (int i=1; i>0; i--)
+//    {
+        errorBuffer[1] =  errorBuffer[0];
+//    }
 
     errorBuffer[0] = error;
-    bufferCount++;
-    if (bufferCount >= 8)
-        bufferCount = 8;
+//    bufferCount++;
+//    if (bufferCount >= 8)
+//        bufferCount = 8;
 
     // p contrlller ------------------------------------------------------
     PVal = error * Kp;
@@ -65,9 +65,9 @@ float PID::update(const float currentPoint,
     // normal
     //error_derivative = errorBuffer[0] - errorBuffer[2];
 
-    error_derivative = errorBuffer[0] + errorBuffer[1]
-                      - errorBuffer[2] - errorBuffer[3];
-    error_derivative /= 4.0f;
+    /*error_derivative*/DVal = errorBuffer[0] - errorBuffer[1];
+//                      - errorBuffer[2] - errorBuffer[3];
+//    error_derivative /= 4.0f;
 
     // damp
     //error_derivative = errorBuffer[0] + errorBuffer[1] + errorBuffer[2] + errorBuffer[3]
@@ -76,8 +76,8 @@ float PID::update(const float currentPoint,
     //}
 
     // d contrlller
-    DVal = (1.0f-alpha)*error_derivative + alpha*old_error_derivative;
-    old_error_derivative = DVal;
+//    DVal = (1.0f-alpha)*error_derivative + alpha*old_error_derivative;
+//    old_error_derivative = DVal;
 
     DVal = DVal / dt * Kd;
 
@@ -124,15 +124,15 @@ float PID::update(const float currentPoint, const float dt)
     counter++;
     //cout << "error: " << error << endl;
 */
-    for (int i=7; i>0; i--)
-    {
-        errorBuffer[i] =  errorBuffer[i-1];
-    }
+//    for (int i=7; i>0; i--)
+//    {
+        errorBuffer[1] =  errorBuffer[0];
+//    }
 
     errorBuffer[0] = error;
-    bufferCount++;
-    if (bufferCount >= 8)
-        bufferCount = 8;
+//    bufferCount++;
+//    if (bufferCount >= 8)
+//        bufferCount = 8;
 
     // p contrlller ------------------------------------------------------
     PVal = error * Kp;
@@ -148,9 +148,9 @@ float PID::update(const float currentPoint, const float dt)
     // normal
     //error_derivative = errorBuffer[0] - errorBuffer[2];
 
-    error_derivative = errorBuffer[0] + errorBuffer[1]
-                      - errorBuffer[2] - errorBuffer[3];
-    error_derivative /= 4.0f;
+    DVal = errorBuffer[0] - errorBuffer[1];
+//                      - errorBuffer[2] - errorBuffer[3];
+//    error_derivative /= 4.0f;
 
     // damp
     //error_derivative = errorBuffer[0] + errorBuffer[1] + errorBuffer[2] + errorBuffer[3]
@@ -159,8 +159,8 @@ float PID::update(const float currentPoint, const float dt)
     //}
 
     // d contrlller
-    DVal = (1.0f-alpha)*error_derivative + alpha*old_error_derivative;
-    old_error_derivative = DVal;
+//    DVal = (1.0f-alpha)*error_derivative + alpha*old_error_derivative;
+//    old_error_derivative = DVal;
 
     DVal = DVal / dt * Kd;
 

@@ -48,6 +48,7 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   FILES
    Effort.msg
+   info.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -68,6 +69,7 @@ add_message_files(
 generate_messages(
   DEPENDENCIES
    std_msgs  # Or other packages containing msgs
+   std_msgs
 )
 
 ###################################
